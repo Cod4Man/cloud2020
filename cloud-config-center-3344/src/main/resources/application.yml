@@ -1,0 +1,32 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  rabbitmq:
+    host: 192.168.1.170
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:Cod4Man/microservice-config.git
+          search-paths:
+          - microservice-config
+      label: master
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://eureka7001.com:7001/eureka
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+
